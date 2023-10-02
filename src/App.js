@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import countriesData from "./data/countries";
+import styles from "./App.css";
+import Table from "./components/Table/Table";
+
+const App = () => {
+  const [countries] = useState([...countriesData]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={styles.container}>
+      <div className={styles.wrapper}>
+        <Table data={countries} rowsPerPage={4} />
+      </div>
+    </main>
   );
-}
+};
 
 export default App;
